@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ndfuogclpeh"]
+
+[ext_resource type="Script" path="res://3Do_model.gd" id="1_3syau"]
+[ext_resource type="Texture2D" uid="uid://dy44rvj0sku74" path="res://resources/luigi2.png" id="2_h5agc"]
+
+[node name="model handler" type="StaticBody2D"]
+script = ExtResource("1_3syau")
+modelfile = "res://resources/triangle.3D"
+poly_faces = [[0, 2, 1, ExtResource("2_h5agc"), Color(0.266667, 0.403922, 0.807843, 1)]]
+poly_verts = [Vector3(100, -100, -100), Vector3(100, 100, -100), Vector3(-100, 0, -100)]
+position_z = null
+rotation_z = null
+scale_z = null

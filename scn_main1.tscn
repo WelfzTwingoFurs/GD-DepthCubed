@@ -1,0 +1,444 @@
+[gd_scene load_steps=39 format=3 uid="uid://ye7kmlxfdvo5"]
+
+[ext_resource type="PackedScene" uid="uid://boiwmoj7psvsa" path="res://inst_player.tscn" id="1_eua8b"]
+[ext_resource type="Script" path="res://3Do_sprite.gd" id="3_accnt"]
+[ext_resource type="Texture2D" uid="uid://doaiuv3tp1s10" path="res://resources/aim.png" id="5_u6g0o"]
+[ext_resource type="Texture2D" uid="uid://cl4bdvwpdv7yg" path="res://resources/doom1.png" id="6_n603e"]
+[ext_resource type="Texture2D" uid="uid://b86dd2y4pbgtr" path="res://resources/doom0.png" id="7_m3aqi"]
+[ext_resource type="Texture2D" uid="uid://dpjctdqjmug84" path="res://resources/doom5.png" id="8_3v4w6"]
+[ext_resource type="Texture2D" uid="uid://bo3s7i3w7tiq6" path="res://resources/doom4.png" id="9_beeqf"]
+[ext_resource type="Texture2D" uid="uid://c2aplkx2xuqbs" path="res://resources/doom3.png" id="10_6s6ot"]
+[ext_resource type="Texture2D" uid="uid://c3ctu6evqxmv" path="res://resources/sky0.png" id="15_aagmi"]
+[ext_resource type="Texture2D" uid="uid://bycm66wxua5kj" path="res://resources/doom2.png" id="15_ujwwj"]
+[ext_resource type="Texture2D" uid="uid://bfu5kre51bgu3" path="res://resources/sky1.png" id="16_gipg6"]
+[ext_resource type="Texture2D" uid="uid://dipomqof5xu4n" path="res://resources/sky2.png" id="17_ggbw0"]
+[ext_resource type="Texture2D" uid="uid://bnj113mqly8ad" path="res://resources/sky3.png" id="18_osk2w"]
+[ext_resource type="Texture2D" uid="uid://cq88246687qiq" path="res://resources/doom6.png" id="19_k03f8"]
+[ext_resource type="Texture2D" uid="uid://doj46yla6ksxv" path="res://resources/floor.png" id="19_ww8e4"]
+[ext_resource type="Texture2D" uid="uid://cpk5oaqmb1ko3" path="res://resources/doom7.png" id="20_6xbga"]
+[ext_resource type="Texture2D" uid="uid://dp6glljy6r0rs" path="res://resources/duke0.png" id="21_a0q6i"]
+[ext_resource type="Texture2D" uid="uid://de34ncbtqr2q3" path="res://resources/duke1.png" id="22_23tu1"]
+[ext_resource type="Texture2D" uid="uid://qdu2x0ehk05u" path="res://resources/duke2.png" id="23_205ki"]
+[ext_resource type="Texture2D" uid="uid://1vuf6xvvnfgx" path="res://resources/duke3.png" id="24_hryq8"]
+[ext_resource type="Texture2D" uid="uid://rtmoib6hiajn" path="res://resources/duke4.png" id="25_ss5yj"]
+[ext_resource type="Texture2D" uid="uid://5byfnsxsp77s" path="res://resources/pixel1.png" id="27_ytaph"]
+[ext_resource type="Texture2D" uid="uid://bilym8qbper7o" path="res://resources/test.png" id="32_7k4gs"]
+[ext_resource type="Texture2D" uid="uid://gcf2i03i76u3" path="res://resources/wallfenstein.png" id="33_i2hpe"]
+[ext_resource type="Texture2D" uid="uid://1v3srmcl5y7s" path="res://resources/billy0.png" id="33_mae3t"]
+[ext_resource type="Texture2D" uid="uid://dke4uhogthmql" path="res://resources/billy1.png" id="34_loko3"]
+[ext_resource type="Texture2D" uid="uid://cumfmig168qx8" path="res://resources/snake0.png" id="38_h18gu"]
+[ext_resource type="Texture2D" uid="uid://bpkpq2oxw5rrh" path="res://resources/snake1.png" id="39_kiejq"]
+[ext_resource type="Texture2D" uid="uid://368owsxjfbo4" path="res://resources/snake3.png" id="40_i0upr"]
+[ext_resource type="PackedScene" uid="uid://5ndfuogclpeh" path="res://inst_modelhandler.tscn" id="40_tbql2"]
+[ext_resource type="Texture2D" uid="uid://c7xvmsca3jw6c" path="res://resources/snake2.png" id="41_bahan"]
+[ext_resource type="Texture2D" uid="uid://k0psxi2y6386" path="res://resources/runner0.png" id="41_vjoec"]
+[ext_resource type="Texture2D" uid="uid://t84pae8ralyn" path="res://resources/runner1.png" id="42_nrbep"]
+[ext_resource type="Texture2D" uid="uid://b48qxxxuc82gk" path="res://resources/luigi0.png" id="43_3r86h"]
+[ext_resource type="Texture2D" uid="uid://dsktqpk3hq4jd" path="res://resources/cave0.png" id="43_junmo"]
+[ext_resource type="Texture2D" uid="uid://b876w6nek7n3b" path="res://resources/luigi1.png" id="44_vwec3"]
+[ext_resource type="Texture2D" uid="uid://dy44rvj0sku74" path="res://resources/luigi2.png" id="45_grfsn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8bbm"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_eua8b")]
+
+[node name="model handler" parent="." instance=ExtResource("40_tbql2")]
+position = Vector2(5, 816)
+modelfile = "res://resources/bubsy.3D"
+poly_faces = []
+poly_verts = []
+position_z = 0.0
+rotation_z = Vector2(0, 0)
+scale_z = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="model handler"]
+polygon = PackedVector2Array(-204.941, 121.65, 200.085, 121.65, 200.085, -107.192, -204.941, -107.192)
+
+[node name="tex+cor" parent="." instance=ExtResource("40_tbql2")]
+position = Vector2(-484, -1169)
+scale = Vector2(10, 10)
+modelfile = ""
+poly_faces = [[0, 1, 2, 3, "res://resources/wallfenstein.png", Color(0, 0.686275, 0, 1)]]
+poly_verts = [Vector3(0, 0, -50), Vector3(100, 0, 100), Vector3(100, 100, 50), Vector3(0, 100, -100)]
+position_z = 0.0
+rotation_z = Vector2(0, 0)
+scale_z = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tex+cor"]
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+
+[node name="sprite rotations" type="Node2D" parent="."]
+
+[node name="billy" type="StaticBody2D" parent="sprite rotations"]
+position = Vector2(-44, 226)
+script = ExtResource("3_accnt")
+texture = "billy"
+rotations = -2
+offset_z = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite rotations/billy"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="pixel" type="StaticBody2D" parent="sprite rotations"]
+position = Vector2(0, 226)
+script = ExtResource("3_accnt")
+texture = "pixel1"
+rot_flip = false
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite rotations/pixel"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="runner" type="StaticBody2D" parent="sprite rotations"]
+position = Vector2(32, 226)
+script = ExtResource("3_accnt")
+texture = "runner"
+rotations = 2
+rot_flip = false
+offset_z = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite rotations/runner"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="snake" type="StaticBody2D" parent="sprite rotations"]
+position = Vector2(235, 226)
+script = ExtResource("3_accnt")
+texture = "snake"
+rotations = 4
+offset_z = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite rotations/snake"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="luigi" type="StaticBody2D" parent="sprite rotations"]
+position = Vector2(160, 226)
+script = ExtResource("3_accnt")
+texture = "luigi"
+rotations = -4
+offset_z = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite rotations/luigi"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="duke" type="StaticBody2D" parent="sprite rotations"]
+position = Vector2(-168, 226)
+script = ExtResource("3_accnt")
+texture = "duke"
+rotations = -8
+offset_z = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite rotations/duke"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="doom" type="StaticBody2D" parent="sprite rotations"]
+position = Vector2(-256, 226)
+script = ExtResource("3_accnt")
+texture = "doom"
+rotations = 8
+offset_z = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sprite rotations/doom"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="FOV matching" type="Node2D" parent="."]
+scale = Vector2(1, -1)
+
+[node name="045= 0,8" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+position = Vector2(40, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/045= 0,8"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="090= 2,04" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+position = Vector2(100, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/090= 2,04"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="135= 4,72" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+position = Vector2(236, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/135= 4,72"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="120= 3,5" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.498039, 0.498039, 0.498039, 0.498039)
+position = Vector2(173, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/120= 3,5"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="L178= 117" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.498039, 0.498039, 1, 1)
+position = Vector2(5732, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/L178= 117"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="L176= 59" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.25, 0.25, 0.5, 1)
+position = Vector2(2865, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/L176= 59"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="L004= 0,082" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.501961, 0.501961, 0.25098, 1)
+position = Vector2(4, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/L004= 0,082"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="L002= 0,041" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(1, 1, 0.498039, 1)
+position = Vector2(2, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/L002= 0,041"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="i136= 5" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0, 0.701961, 0.0509804, 1)
+position = Vector2(-249, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/i136= 5"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="i126= 4" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0, 0.360784, 0.00392157, 1)
+position = Vector2(-199, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/i126= 4"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="i113= 3" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0, 0.701961, 0.0509804, 1)
+position = Vector2(-150, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/i113= 3"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="i90= 2" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0, 0.964706, 0.184314, 1)
+position = Vector2(-100, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/i90= 2"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="i53= 1" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.537255, 1, 0.505882, 1)
+position = Vector2(-50, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/i53= 1"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="i28= 0,5" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.811765, 1, 0.792157, 1)
+position = Vector2(-25, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/i28= 0,5"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="0" type="StaticBody2D" parent="FOV matching"]
+modulate = Color(0.4, 0, 0.253333, 0.498039)
+position = Vector2(0, 100)
+script = ExtResource("3_accnt")
+texture = "aim"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FOV matching/0"]
+shape = SubResource("RectangleShape2D_t8bbm")
+
+[node name="load textures -_-" type="Node" parent="."]
+
+[node name="Aim" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("5_u6g0o")
+
+[node name="Doom0" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("7_m3aqi")
+
+[node name="Doom1" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("6_n603e")
+
+[node name="Doom2" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("15_ujwwj")
+
+[node name="Doom3" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("10_6s6ot")
+
+[node name="Doom4" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("9_beeqf")
+
+[node name="Doom5" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("8_3v4w6")
+
+[node name="Doom6" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("19_k03f8")
+
+[node name="Doom7" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("20_6xbga")
+
+[node name="Duke0" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("21_a0q6i")
+
+[node name="Duke1" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("22_23tu1")
+
+[node name="Duke2" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("23_205ki")
+
+[node name="Duke3" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("24_hryq8")
+
+[node name="Duke4" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("25_ss5yj")
+
+[node name="Floor" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("19_ww8e4")
+
+[node name="Pixel1" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("27_ytaph")
+
+[node name="Sky0" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("15_aagmi")
+
+[node name="Sky1" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("16_gipg6")
+
+[node name="Sky2" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("17_ggbw0")
+
+[node name="Sky3" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("18_osk2w")
+
+[node name="Test" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("32_7k4gs")
+
+[node name="Wallfenstein" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("33_i2hpe")
+
+[node name="Billy0" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("33_mae3t")
+
+[node name="Billy1" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("34_loko3")
+
+[node name="Snake0" type="Sprite2D" parent="load textures -_-"]
+visible = false
+position = Vector2(-25, 49)
+texture = ExtResource("38_h18gu")
+
+[node name="Snake1" type="Sprite2D" parent="load textures -_-"]
+visible = false
+position = Vector2(-25, 49)
+texture = ExtResource("39_kiejq")
+
+[node name="Snake2" type="Sprite2D" parent="load textures -_-"]
+visible = false
+position = Vector2(-25, 49)
+texture = ExtResource("41_bahan")
+
+[node name="Snake3" type="Sprite2D" parent="load textures -_-"]
+visible = false
+position = Vector2(-25, 49)
+texture = ExtResource("40_i0upr")
+
+[node name="Luigi0" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("43_3r86h")
+
+[node name="Luigi1" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("44_vwec3")
+
+[node name="Luigi2" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("45_grfsn")
+
+[node name="Goonie0" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("41_vjoec")
+
+[node name="Goonie1" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("42_nrbep")
+
+[node name="Cave0" type="Sprite2D" parent="load textures -_-"]
+visible = false
+texture = ExtResource("43_junmo")

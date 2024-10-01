@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://boiwmoj7psvsa"]
+
+[ext_resource type="Script" path="res://inst_player.gd" id="1_u71gn"]
+[ext_resource type="Texture2D" uid="uid://doaiuv3tp1s10" path="res://resources/aim.png" id="2_xsf6s"]
+[ext_resource type="PackedScene" uid="uid://d2dpc1s825s6p" path="res://isnt_camera.tscn" id="3_4bliy"]
+
+[node name="Player" type="CharacterBody2D"]
+slide_on_ceiling = false
+script = ExtResource("1_u71gn")
+
+[node name="aim" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+z_index = 4096
+texture = ExtResource("2_xsf6s")
+
+[node name="Camera" parent="." instance=ExtResource("3_4bliy")]
