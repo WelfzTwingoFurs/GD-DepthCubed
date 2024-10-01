@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfkca7lc624m3"]
+
+[ext_resource type="Script" path="res://,oldfiles/obj_editcam1.gd" id="1_jn4jj"]
+
+[node name="EDITOR CAMERA" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_jn4jj")
+metadata/_edit_group_ = true
+
+[node name="area" type="Area2D" parent="."]
+process_mode = 3
+modulate = Color(0, 0, 0, 1)
+
+[node name="col" type="CollisionPolygon2D" parent="area"]
+process_mode = 3
+polygon = PackedVector2Array(0, 0, -17320.5, 10000, 17320.5, 10000)
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="area" to="." method="_on_area_body_exited"]

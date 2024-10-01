@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp5kr8e1x3bi5"]
+
+[ext_resource type="PackedScene" uid="uid://cw51e3x03wjdn" path="res://,oldfiles/platformers/CameraNode1.tscn" id="1_6wbm7"]
+[ext_resource type="Script" path="res://,oldfiles/platformers/3Dshape.gd" id="4_p4en0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CameraNode" parent="." instance=ExtResource("1_6wbm7")]
+
+[node name="kyoob" type="StaticBody2D" parent="." groups=["3D"]]
+modulate = Color(0, 0, 0, 0.247059)
+script = ExtResource("4_p4en0")
+depth = Vector2(1, 1.2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kyoob"]
+polygon = PackedVector2Array(0, 0, -100, 0, -100, -100, 0, -100)
+metadata/_edit_lock_ = true
+
+[node name="kyoob4" type="StaticBody2D" parent="." groups=["3D"]]
+modulate = Color(0, 0, 0, 0.247059)
+script = ExtResource("4_p4en0")
+depth = Vector2(1, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kyoob4"]
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+metadata/_edit_lock_ = true
+
+[node name="kyoob5" type="StaticBody2D" parent="." groups=["3D"]]
+modulate = Color(0, 0, 0, 0.247059)
+position = Vector2(852, -454)
+script = ExtResource("4_p4en0")
+depth = Vector2(1, 1.1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kyoob5"]
+polygon = PackedVector2Array(0, 0, 500, 0, 500, 500, 0, 500, 0, 450, 450, 450, 450, 50, 50, 50, 50, 300, 0, 300)
+metadata/_edit_lock_ = true
+
+[node name="kyoob6" type="StaticBody2D" parent="." groups=["3D"]]
+modulate = Color(0, 0, 0, 0.247059)
+position = Vector2(1084, 314)
+script = ExtResource("4_p4en0")
+depth = Vector2(1, 1.1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kyoob6"]
+polygon = PackedVector2Array(-253, -118, 408, -292, 236, 285, 321, -244, -120, -81, -1, 174, 249, -44, -38, 310)
+metadata/_edit_lock_ = true
+
+[node name="kyoob7" type="StaticBody2D" parent="." groups=["3D"]]
+modulate = Color(0, 0, 0, 0.247059)
+position = Vector2(692, -454)
+script = ExtResource("4_p4en0")
+depth = Vector2(1, 1.1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="kyoob7"]
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 1000)
+metadata/_edit_lock_ = true

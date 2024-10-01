@@ -1,0 +1,510 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjmdibhm65pvq"]
+
+[ext_resource type="PackedScene" uid="uid://d2dpc1s825s6p" path="res://3DS_camera1.tscn" id="1_fyx1i"]
+[ext_resource type="Script" path="res://3DOpolyarray.gd" id="2_jdkwo"]
+[ext_resource type="Script" path="res://3DZmarker.gd" id="3_hsd2s"]
+[ext_resource type="Script" path="res://3DOsprite.gd" id="4_f1jbi"]
+[ext_resource type="Texture2D" uid="uid://cfuol7qotoh8x" path="res://,oldfiles/spr_sprite1.png" id="5_1u0vp"]
+[ext_resource type="Texture2D" uid="uid://gcf2i03i76u3" path="res://resources/wallfenstein.png" id="6_512ug"]
+[ext_resource type="Texture2D" uid="uid://bh424023nxecf" path="res://,oldfiles/spr_tallpixel1.png" id="7_ie12l"]
+[ext_resource type="Texture2D" uid="uid://ckukvwe6lqlrd" path="res://resources/aim.png" id="8_i3omw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3civ"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera" parent="." instance=ExtResource("1_fyx1i")]
+position = Vector2(-89, -216)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(6210, 0)
+
+[node name="polyman" type="CharacterBody2D" parent="Node2D"]
+position = Vector2(0, 0.001)
+script = ExtResource("2_jdkwo")
+polys = [[0, 1, 2, Color(0, 0, 1, 1)]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D/polyman"]
+polygon = PackedVector2Array(0, 0, 173, 100, -173, 100)
+
+[node name="points" type="Node2D" parent="Node2D/polyman"]
+
+[node name="R" type="Marker2D" parent="Node2D/polyman/points"]
+position = Vector2(173, 100)
+script = ExtResource("3_hsd2s")
+
+[node name="L" type="Marker2D" parent="Node2D/polyman/points"]
+position = Vector2(-173, 100)
+script = ExtResource("3_hsd2s")
+
+[node name="T" type="Marker2D" parent="Node2D/polyman/points"]
+script = ExtResource("3_hsd2s")
+
+[node name="spriteman" type="CharacterBody2D" parent="Node2D"]
+position = Vector2(0, 0.001)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("5_1u0vp")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/spriteman"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="100, 45" type="Node2D" parent="Node2D"]
+
+[node name="spritemanL" type="CharacterBody2D" parent="Node2D/100, 45"]
+position = Vector2(-40, 100)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("5_1u0vp")
+positionZ = 62.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/100, 45/spritemanL"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="spritemanR" type="CharacterBody2D" parent="Node2D/100, 45"]
+position = Vector2(40, 100)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("5_1u0vp")
+positionZ = -62.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/100, 45/spritemanR"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="100, 90" type="Node2D" parent="Node2D"]
+
+[node name="spritemanL" type="CharacterBody2D" parent="Node2D/100, 90"]
+position = Vector2(-100, 100)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("5_1u0vp")
+positionZ = 125.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/100, 90/spritemanL"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="spritemanR" type="CharacterBody2D" parent="Node2D/100, 90"]
+position = Vector2(100, 100)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("5_1u0vp")
+positionZ = -125.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/100, 90/spritemanR"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="100, 120" type="Node2D" parent="Node2D"]
+
+[node name="spritemanL" type="CharacterBody2D" parent="Node2D/100, 120"]
+position = Vector2(-173, 100)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("5_1u0vp")
+positionZ = 250.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/100, 120/spritemanL"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="spritemanR" type="CharacterBody2D" parent="Node2D/100, 120"]
+position = Vector2(173, 100)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("5_1u0vp")
+positionZ = -250.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/100, 120/spritemanR"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="line" type="Node2D" parent="Node2D"]
+position = Vector2(-311, -300)
+
+[node name="sprite0" type="CharacterBody2D" parent="Node2D/line"]
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line/sprite0"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite1" type="CharacterBody2D" parent="Node2D/line"]
+position = Vector2(100, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line/sprite1"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite2" type="CharacterBody2D" parent="Node2D/line"]
+position = Vector2(200, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line/sprite2"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite3" type="CharacterBody2D" parent="Node2D/line"]
+position = Vector2(300, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line/sprite3"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite4" type="CharacterBody2D" parent="Node2D/line"]
+position = Vector2(400, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line/sprite4"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite5" type="CharacterBody2D" parent="Node2D/line"]
+position = Vector2(500, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line/sprite5"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite6" type="CharacterBody2D" parent="Node2D/line"]
+position = Vector2(600, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line/sprite6"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="line3" type="Node2D" parent="Node2D"]
+position = Vector2(-311, -300)
+rotation = 1.5708
+
+[node name="sprite1" type="CharacterBody2D" parent="Node2D/line3"]
+position = Vector2(100, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line3/sprite1"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite2" type="CharacterBody2D" parent="Node2D/line3"]
+position = Vector2(200, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line3/sprite2"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite3" type="CharacterBody2D" parent="Node2D/line3"]
+position = Vector2(300, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line3/sprite3"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite4" type="CharacterBody2D" parent="Node2D/line3"]
+position = Vector2(400, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line3/sprite4"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite5" type="CharacterBody2D" parent="Node2D/line3"]
+position = Vector2(500, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line3/sprite5"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="line4" type="Node2D" parent="Node2D"]
+position = Vector2(289, -300)
+rotation = 1.5708
+
+[node name="sprite1" type="CharacterBody2D" parent="Node2D/line4"]
+position = Vector2(100, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line4/sprite1"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite2" type="CharacterBody2D" parent="Node2D/line4"]
+position = Vector2(200, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line4/sprite2"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite3" type="CharacterBody2D" parent="Node2D/line4"]
+position = Vector2(300, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line4/sprite3"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite4" type="CharacterBody2D" parent="Node2D/line4"]
+position = Vector2(400, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line4/sprite4"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite5" type="CharacterBody2D" parent="Node2D/line4"]
+position = Vector2(500, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line4/sprite5"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="line2" type="Node2D" parent="Node2D"]
+position = Vector2(-311, 300)
+
+[node name="sprite0" type="CharacterBody2D" parent="Node2D/line2"]
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line2/sprite0"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite1" type="CharacterBody2D" parent="Node2D/line2"]
+position = Vector2(100, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line2/sprite1"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite2" type="CharacterBody2D" parent="Node2D/line2"]
+position = Vector2(200, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line2/sprite2"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite3" type="CharacterBody2D" parent="Node2D/line2"]
+position = Vector2(300, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line2/sprite3"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite4" type="CharacterBody2D" parent="Node2D/line2"]
+position = Vector2(400, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line2/sprite4"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite5" type="CharacterBody2D" parent="Node2D/line2"]
+position = Vector2(500, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line2/sprite5"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="sprite6" type="CharacterBody2D" parent="Node2D/line2"]
+position = Vector2(600, 0)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("6_512ug")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/line2/sprite6"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="polyman2" type="CharacterBody2D" parent="."]
+position = Vector2(0, 0.001)
+script = ExtResource("2_jdkwo")
+polys = [[4, 5, 6, 7, Color(0, 0, 0, 1)], [0, 1, 2, 3, Color(1, 1, 1, 1)], [0, 4, 5, 1, Color(0, 0, 1, 1)], [1, 5, 6, 2, Color(1, 0, 0, 1)], [2, 6, 7, 3, Color(0, 1, 0, 1)], [3, 7, 4, 0, Color(1, 1, 0, 1)]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="polyman2"]
+polygon = PackedVector2Array(289, -300.001, 289, 299.999, -311, 299.999, -311, -300.001)
+
+[node name="points" type="Node2D" parent="polyman2"]
+
+[node name="0" type="Marker2D" parent="polyman2/points"]
+position = Vector2(289, -300.001)
+script = ExtResource("3_hsd2s")
+positionZ = -100
+
+[node name="1" type="Marker2D" parent="polyman2/points"]
+position = Vector2(289, 299.999)
+script = ExtResource("3_hsd2s")
+positionZ = -100
+
+[node name="2" type="Marker2D" parent="polyman2/points"]
+position = Vector2(-311, 299.999)
+script = ExtResource("3_hsd2s")
+positionZ = -100
+
+[node name="3" type="Marker2D" parent="polyman2/points"]
+position = Vector2(-311, -300.001)
+script = ExtResource("3_hsd2s")
+positionZ = -100
+
+[node name="4" type="Marker2D" parent="polyman2/points"]
+position = Vector2(289, -300.001)
+script = ExtResource("3_hsd2s")
+positionZ = 100
+
+[node name="5" type="Marker2D" parent="polyman2/points"]
+position = Vector2(289, 299.999)
+script = ExtResource("3_hsd2s")
+positionZ = 100
+
+[node name="6" type="Marker2D" parent="polyman2/points"]
+position = Vector2(-311, 299.999)
+script = ExtResource("3_hsd2s")
+positionZ = 100
+
+[node name="7" type="Marker2D" parent="polyman2/points"]
+position = Vector2(-311, -300.001)
+script = ExtResource("3_hsd2s")
+positionZ = 100
+
+[node name="TR" type="CharacterBody2D" parent="."]
+position = Vector2(289, -300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("7_ie12l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TR"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="BR" type="CharacterBody2D" parent="."]
+position = Vector2(289, 300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("7_ie12l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BR"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="BL" type="CharacterBody2D" parent="."]
+position = Vector2(-311, 300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("7_ie12l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BL"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="TL" type="CharacterBody2D" parent="."]
+position = Vector2(-311, -300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("7_ie12l")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TL"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="TR2" type="CharacterBody2D" parent="."]
+position = Vector2(289, -300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("8_i3omw")
+positionZ = 10.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TR2"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="BR2" type="CharacterBody2D" parent="."]
+position = Vector2(289, 300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("8_i3omw")
+positionZ = 10.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BR2"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="BL2" type="CharacterBody2D" parent="."]
+position = Vector2(-311, 300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("8_i3omw")
+positionZ = 10.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BL2"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="TL2" type="CharacterBody2D" parent="."]
+position = Vector2(-311, -300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("8_i3omw")
+positionZ = 10.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TL2"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="TR3" type="CharacterBody2D" parent="."]
+position = Vector2(289, -300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("8_i3omw")
+positionZ = -10.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TR3"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="BR3" type="CharacterBody2D" parent="."]
+position = Vector2(289, 300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("8_i3omw")
+positionZ = -10.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BR3"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="BL3" type="CharacterBody2D" parent="."]
+position = Vector2(-311, 300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("8_i3omw")
+positionZ = -10.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BL3"]
+shape = SubResource("CircleShape2D_m3civ")
+
+[node name="TL3" type="CharacterBody2D" parent="."]
+position = Vector2(-311, -300)
+script = ExtResource("4_f1jbi")
+texture = ExtResource("8_i3omw")
+positionZ = -10.0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TL3"]
+shape = SubResource("CircleShape2D_m3civ")

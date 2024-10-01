@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dlu0mvw6132v1"
+path="res://godot/imported/blnd_pyra.obj-b6b726ff660a158c886946a3d53c1008.mesh"
+
+[deps]
+
+files=["res://godot/imported/blnd_pyra.obj-b6b726ff660a158c886946a3d53c1008.mesh"]
+
+source_file="res://,oldfiles/blnd_pyra.obj"
+dest_files=["res://godot/imported/blnd_pyra.obj-b6b726ff660a158c886946a3d53c1008.mesh", "res://godot/imported/blnd_pyra.obj-b6b726ff660a158c886946a3d53c1008.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

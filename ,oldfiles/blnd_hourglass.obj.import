@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bey48ltdwh8uv"
+path="res://godot/imported/blnd_hourglass.obj-4c0d587bb4c5e19012bbca74af5b5124.mesh"
+
+[deps]
+
+files=["res://godot/imported/blnd_hourglass.obj-4c0d587bb4c5e19012bbca74af5b5124.mesh"]
+
+source_file="res://,oldfiles/blnd_hourglass.obj"
+dest_files=["res://godot/imported/blnd_hourglass.obj-4c0d587bb4c5e19012bbca74af5b5124.mesh", "res://godot/imported/blnd_hourglass.obj-4c0d587bb4c5e19012bbca74af5b5124.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

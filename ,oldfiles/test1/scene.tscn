@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://doir3mvtq878d"]
+
+[ext_resource type="PackedScene" uid="uid://j0ujg4itsvcs" path="res://,oldfiles/test1/cam.tscn" id="1_t864h"]
+[ext_resource type="Texture2D" uid="uid://bh424023nxecf" path="res://spr_tallpixel1.png" id="3_c5x6n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kx4ef"]
+
+[node name="existencial headache" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_t864h")]
+position = Vector2(0, -1)
+draw_dist = 455
+fov = 90
+
+[node name="Icon-bg" type="Sprite2D" parent="."]
+z_index = -4096
+texture_filter = 2
+scale = Vector2(500, 500)
+texture = ExtResource("3_c5x6n")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["render"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_kx4ef")

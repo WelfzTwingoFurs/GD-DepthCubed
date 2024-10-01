@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3xdpy7u0lg5l"]
+
+[ext_resource type="Script" path="res://3DOobjconvert.gd" id="1_v3gmx"]
+[ext_resource type="Script" path="res://3DZmarker.gd" id="2_km0xy"]
+
+[node name="IMPORTED OBJ" type="CharacterBody2D"]
+script = ExtResource("1_v3gmx")
+import = "res://blnd_hourglass.obj"
+poly_array = [[3.0, 1.0, 5.0, Color(1, 1, 1, 1)], [5.0, 1.0, 4.0, Color(1, 1, 1, 1)], [4.0, 2.0, 3.0, 5.0, Color(1, 1, 1, 1)], [2.0, 1.0, 3.0, Color(1, 1, 1, 1)], [4.0, 1.0, 2.0, Color(1, 1, 1, 1)], [6.0, 9.0, 10.0, 8.0, 7.0, Color(1, 1, 1, 1)], [7.0, 8.0, 10.0, 7.0, Color(1, 1, 1, 1)], [7.0, 10.0, 9.0, 7.0, Color(1, 1, 1, 1)], [7.0, 6.0, 8.0, Color(1, 1, 1, 1)], [7.0, 9.0, null, Color(1, 1, 1, 1)]]
+
+[node name="dummy" type="Marker2D" parent="."]
+visible = false
+script = ExtResource("2_km0xy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(645, -649, 665, 666, -633, 659, -626, -629)
+
+[node name="vertexes" type="Node2D" parent="."]
+
+[node name="dummy" type="Marker2D" parent="vertexes"]
+script = ExtResource("2_km0xy")
