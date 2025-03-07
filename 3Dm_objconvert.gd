@@ -1,4 +1,4 @@
-#@tool
+@tool
 extends Node
 @export var import = ""
 @export var savename = ""

@@ -1,18 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2dpc1s825s6p"]
+[gd_scene load_steps=2 format=3 uid="uid://d2dpc1s825s6p"]
 
 [ext_resource type="Script" path="res://3Dr_camera.gd" id="1_q8vm1"]
-[ext_resource type="Script" path="res://3Dr_camnode.gd" id="2_n8cwg"]
 
 [node name="Camera" type="Camera2D"]
 ignore_rotation = false
 script = ExtResource("1_q8vm1")
 metadata/_edit_group_ = true
-
-[node name="DrawContainer" type="Node2D" parent="."]
-
-[node name="Node0" type="Node2D" parent="DrawContainer"]
-z_index = -4096
-script = ExtResource("2_n8cwg")
 
 [node name="Area" type="Area2D" parent="."]
 

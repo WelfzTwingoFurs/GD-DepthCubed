@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://qd5elhed1os7"]
+
+[ext_resource type="Script" path="res://zOLDFILES/3Do_collision1.gd" id="1_5jodu"]
+
+[node name="COLLISION" type="StaticBody2D" groups=["collision"]]
+script = ExtResource("1_5jodu")
+
+[node name="Area" type="Area2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
