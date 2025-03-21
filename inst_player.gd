@@ -39,7 +39,7 @@ func _physics_process(_delta):#Game process exclusively
 		if !onfloor:
 			velocity_z += GRAVITY
 		else:
-			if Input.is_action_just_pressed("ply1_move_up"):
+			if Input.is_action_pressed("ply1_move_up"):
 				velocity_z -= JUMPspeed
 				onfloor = false
 	
@@ -60,29 +60,80 @@ func _physics_process(_delta):#Game process exclusively
 var gravmode = false
 var cols = []
 var onfloor = false
+var onbody = null
+
 func col_process():
 	for C in cols:
-	#horizontal collision
 		var our_feet = position_z
-		var our_head = position_z - height
-		var their_feet = C.position_z
-		var their_head = C.position_z - (C.height * C.scale_z)
+		var our_head = our_feet - height
+		var their_feet
+		var their_head
 		
-		if (our_feet > their_head) && (our_head < their_feet):
-			remove_collision_exception_with(C)
-		else:#if !C.get_collision_exceptions().has(self):
-			add_collision_exception_with(C) 
-	
-	#vertical collision
+		if C.height < 0:#SLOPES
+			their_feet = (old_slope_code(
+				Vector3(position.x, position.y, position_z),
+				Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][0]],
+				Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][1]],
+				Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][2]]) /10) +200
+				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][0]].rotated(Vector3(0,0,1), C.rotation),
+				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][1]].rotated(Vector3(0,0,1), C.rotation),#180 = -500, 270 = -850, 0 = +200, 90 = 0
+				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][2]].rotated(Vector3(0,0,1), C.rotation)) /10)
+			their_head = their_feet - (-C.height * C.scale_z)
+			position_z = their_feet
+			print(C.rotation * 180/PI)
+		
+		else:#FLATS
+			their_feet = C.position_z
+			their_head = their_feet - (C.height * C.scale_z)
+		
+		
+		
+		#vertical collision
 		if velocity_z:
 			if (our_feet < their_head) && (our_feet + velocity_z) > their_head:
 				position_z -= C.velocity_z*10#print("at head")
 				velocity_z = 0 
 				onfloor = true
+				onbody = C
 			
 			elif (our_head > their_feet) && (our_head + velocity_z) < their_feet:
 				position_z -= C.velocity_z#print("at feet")
 				velocity_z = 0
+		
+		
+		if (C.height < 0) && (our_head < their_head) && (onbody == C) && (velocity_z == 0):#get_collision_exceptions().has(C) && 
+			position_z = their_head
+			onfloor = true
+			onbody = C
+		
+		
+		#horizontal collision
+		if ((our_feet > their_head) && (our_head < their_feet))  && !(onbody == C):
+			remove_collision_exception_with(C)
+		else:#if !C.get_collision_exceptions().has(self):
+			add_collision_exception_with(C) 
+		
+		#print("\nour_feet:",our_feet,"\nour_head:",our_head,"\ntheir_feet:",their_feet,"\ntheir_head:",their_head,"\nonbody:",onbody)
+		print("\nour_feet:",our_feet,"  their_head:",their_head,"   onbody:",onbody)
+
+
+
+
+func old_slope_code(v0,v1,v2,v3):#v0 = where colliding  #v1-3 slope points position
+	var normal = (v2 - v1).cross(v3 - v1).normalized()
+	var dir = Vector3(0.0, 0.0, 1.0)
+	var r = v0 + dir * ((v1.dot(normal)) - v0.dot(normal)) / dir.dot(normal)
+	
+	return r.z
+
+
+
+
+
+
+
+
+
 
 
 
@@ -95,3 +146,4 @@ func _on_area_body_exited(body):
 	if cols.has(body):
 		cols.erase(body)
 		onfloor = false
+		onbody = null

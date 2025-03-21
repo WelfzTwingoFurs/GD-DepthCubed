@@ -72,7 +72,7 @@ func _draw():
 			for n in poly:#n(vertex/info), of poly(current polygon), of object.poly_faces(list in poly), of object(model in world)
 				if typeof(n) == TYPE_INT:#INT? Means it's vertex! Calculating...
 					draw_set_transform(Vector2i(),false, Vector2(1,1))
-					var vertex2 = (Vector2(object.poly_verts[n].x, object.poly_verts[n].y) *object.scale) +object.position
+					var vertex2 = ((Vector2(object.poly_verts[n].x, object.poly_verts[n].y).rotated(object.rotation)) *object.scale) +object.position
 					var angle = (vertex2-global_position).angle() - midscreen
 					
 					var final = Vector2(
@@ -83,7 +83,7 @@ func _draw():
 						DisplayServer.window_get_size().x/1225.0)#1225 = 35*35
 					
 					behind_count += 1
-					if global_position.distance_to(vertex2) * cos(angle) < 0:#Behind fix 
+					if global_position.distance_to(vertex2) * cos(angle) < 0:#Behind fix !!!!!!!!!!!!!!
 						final = Vector2(100000000,0).rotated((-final-Vector2(midscreen,0)).angle())
 						z_calc += drawdist
 						behind_count -= 1
@@ -123,35 +123,23 @@ func _draw():
 			
 			elif object.rotations < -1:
 				rotangle = (int(( ($Area.rotation_degrees-(object.rotation_degrees+180))/360 )*(abs(object.rotations)+1)) % 360)# % object.rotations/2
-				print(rotangle," ",object.rotations)
+				#######print(rotangle)
 				
 				if rotangle < object.rotations/2:
 					rotangle -= object.rotations
-					print(rotangle)
+					if rotangle < object.rotations/2:
+						rotangle = object.rotations/2
+					#######print(rotangle)
 				
-				if (rotangle < 0) or (!object.rot_flip && (rotangle == -object.rotations/2)): 
-					rotangle = abs(rotangle)#for flipped graphics
-					sprite = load(str("res://resources/",object.texture, rotangle,".png"))
-					rotangle = -1
-					
+				sprite = load(str("res://resources/",object.texture, abs(rotangle),".png"))
 				
-				#elif rotangle > -object.rotations/2:
-				#	rotangle += object.rotations
-				#	print(rotangle)
-				#	sprite = load(str("res://resources/",object.texture, abs(rotangle),".png"))
-				#	if object.rot_flip && ((rotangle == 0) or (rotangle == -object.rotations/2)): 
-				#		rotangle = -1
-				#		print(rotangle)
-				
-				else:
-					sprite = load(str("res://resources/",object.texture, abs(rotangle),".png"))
-					#print($Area.rotation_degrees-object.rotation_degrees)
-					#if rotangle == 0: rotangle = 1
-					#elif (object.rot_flip && (rotangle == -object.rotations/2) && ($Area.rotation_degrees-object.rotation_degrees > 360)): rotangle = -1
+				#if (rotangle < 0) or (!object.rot_flip && (rotangle == -object.rotations/2)): 
+				#	rotangle = -1
 				
 				if rotangle == 0:
-					if object.rot_flip && ($Area.rotation_degrees-object.rotation_degrees > 180): rotangle = -1
-					else: rotangle = 1
+					rotangle = 1
+					#if object.rot_flip && ($Area.rotation_degrees-object.rotation_degrees > 180): rotangle = -1
+					#else: rotangle = 1
 			
 			
 			var angle = (object.global_position-global_position).angle() - midscreen
