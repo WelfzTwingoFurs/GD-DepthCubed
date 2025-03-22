@@ -70,17 +70,38 @@ func col_process():
 		var their_head
 		
 		if C.height < 0:#SLOPES
+			#var nega_fix = Vector3(INF,INF,0)
+			#for i in 3:
+				#if C.poly_verts[C.poly_faces[0][i]].x < nega_fix.x:
+					#nega_fix.x = C.poly_verts[C.poly_faces[0][i]].x
+				#if C.poly_verts[C.poly_faces[0][i]].y < nega_fix.y:
+					#nega_fix.y = C.poly_verts[C.poly_faces[0][i]].y
+			#
+			#if nega_fix.x >= 0:
+				#nega_fix.x = 0
+			#if nega_fix.y >= 0:
+				#nega_fix.y = 0
+			#
+			#print(nega_fix)
+			
 			their_feet = (old_slope_code(
 				Vector3(position.x, position.y, position_z),
-				Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][0]],
-				Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][1]],
-				Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][2]]) /10) +200
+				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][0]],
+				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][1]],
+				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][2]]) /10)
 				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][0]].rotated(Vector3(0,0,1), C.rotation),
-				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][1]].rotated(Vector3(0,0,1), C.rotation),#180 = -500, 270 = -850, 0 = +200, 90 = 0
-				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][2]].rotated(Vector3(0,0,1), C.rotation)) /10)
-			their_head = their_feet - (-C.height * C.scale_z)
-			position_z = their_feet
-			print(C.rotation * 180/PI)
+				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][1]].rotated(Vector3(0,0,1), C.rotation),
+				#Vector3(0,0,C.position_z*10) + C.poly_verts[C.poly_faces[0][2]].rotated(Vector3(0,0,1), C.rotation)) /10) #+ 180 = -500, 270 = -850, 0 = +200, 90 = 0
+				#-nega_fix + Vector3(C.position.x,C.position.y,C.position_z*10) + C.poly_verts[C.poly_faces[0][0]],
+				#-nega_fix + Vector3(C.position.x,C.position.y,C.position_z*10) + C.poly_verts[C.poly_faces[0][1]],
+				#-nega_fix + Vector3(C.position.x,C.position.y,C.position_z*10) + C.poly_verts[C.poly_faces[0][2]]) /10)
+				Vector3(C.position.x,C.position.y,C.position_z*10) + C.poly_verts[C.poly_faces[0][0]],
+				Vector3(C.position.x,C.position.y,C.position_z*10) + C.poly_verts[C.poly_faces[0][1]],
+				Vector3(C.position.x,C.position.y,C.position_z*10) + C.poly_verts[C.poly_faces[0][2]]) /10)
+			
+			their_head = their_feet - ((-C.height*2) * C.scale_z)
+			#position_z = their_feet
+			#print(C.rotation * 180/PI)
 		
 		else:#FLATS
 			their_feet = C.position_z

@@ -72,7 +72,8 @@ func _draw():
 			for n in poly:#n(vertex/info), of poly(current polygon), of object.poly_faces(list in poly), of object(model in world)
 				if typeof(n) == TYPE_INT:#INT? Means it's vertex! Calculating...
 					draw_set_transform(Vector2i(),false, Vector2(1,1))
-					var vertex2 = ((Vector2(object.poly_verts[n].x, object.poly_verts[n].y).rotated(object.rotation)) *object.scale) +object.position
+					#var vertex2 = ((Vector2(object.poly_verts[n].x, object.poly_verts[n].y).rotated(object.rotation)) *object.scale) +object.position
+					var vertex2 = (Vector2(object.poly_verts[n].x, object.poly_verts[n].y) *object.scale) +object.position
 					var angle = (vertex2-global_position).angle() - midscreen
 					
 					var final = Vector2(
